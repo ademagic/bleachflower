@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+import { getCollection } from 'astro:content';
+
+const glossary = (await getCollection('glossary'));
+
+---
+
+<Layout
+	title="Glossary"
+	description="Words you might hear, and their definitions"
+>
+	<dl>
+	{
+		glossary.map(g => {
+			const {id, word, definition} = g.data
+			return (
+				<dt id={id}>{word}</dt>
+				<dd>{definition}</dd>
+			);
+		})
+	}
+	</dl>
+</Layout>
