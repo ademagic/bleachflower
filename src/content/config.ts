@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, reference, z } from 'astro:content';
 
 const obj_character = {
 	id: z.string(),
@@ -76,8 +76,8 @@ const obj_pc = {
 		deathsave_success: z.number(),
 		deathsave_failure: z.number(),
 	}),
-	equipment: z.array(z.string()),
-	attacksSpells: z.array(z.string()),
+	equipment: z.array(reference('item')),
+	attacksSpells: z.array(reference('attackSpell')),
 	money: z.number(),
 	flavor: z.object({
 		personality: z.array(z.string()),
@@ -122,6 +122,17 @@ const item = defineCollection({
 	}),
 });
 
+const attackSpell = defineCollection({
+	type: 'data',
+	schema: z.object({
+		id: z.string(),
+		name: z.string(),
+		description: z.string(),
+		atkBonus: z.number(),
+		damageType: z.string(),
+	}),
+})
+
 const npc = defineCollection({
 	type: 'data',
 	schema: z.object({
@@ -144,4 +155,4 @@ const pc = defineCollection({
 	}),
 });
 
-export const collections = { blog, glossary, item, pc, npc, mob };
+export const collections = { blog, glossary, item, pc, npc, mob, attackSpell };
