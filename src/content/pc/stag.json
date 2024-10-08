@@ -6,14 +6,14 @@
     "alias":"The Stag, The Golden Gun",
     "gender":"Male",
     "race":"Human",
-    "description":"A gruff mercenary for hire, quick with a gun",
-    "location":"The Dustbowl",
+    "description":"A gruff mercenary for hire, quick with a gun. Leathery, mean-looking, less famous than he thinks.",
+    "location":"The Prickly Pear",
     "image":"",
     "hp":"",
     "mp":"",
     "class":"Bandolero",
     "level":"2",
-    "background":"Mercenary",
+    "background":"Mercenary for hire. Came from a well off family, his ego (and embarrassment of his upbringing) led him to live the life of an outlaw. Not really a criminal but will break the law to look cool.",
     "xp":"123",
     "attributes":{
         "str":"10",
@@ -61,7 +61,7 @@
     "otherProficienciesAndLanguages":"natural affinity for knots and knot-tying, can whistle really well",
     "combat":{
         "armorClass":0,
-        "initiative":25,
+        "initiative":0,
         "speed":5,
         "hp":10,
         "hp_max":10,
@@ -77,7 +77,7 @@
     "flavor":{
         "personality":["narcissistic", "brash", "gruff"],
         "ideals":["no moral code", "money over everything", "always cool", "always ready for action"],
-        "bonds":[],
+        "bonds":["ego and pride", "his own self image as a badass outlaw"],
         "flaws":["money chaser, easily swayed by highest bidder", "narcissist, any potential for humiliation must be resolved immediately"],
         "featuresTraits":["A sun-tanned, leather-skinned, bony man with a permanent squint."]
     }
