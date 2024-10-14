@@ -107,6 +107,7 @@ const glossary = defineCollection({
 		word: z.string(),
 		definition: z.string(),
 		image: z.string().optional(),
+		seeAlso: z.array(z.string()).optional(),
 	}),
 });
 

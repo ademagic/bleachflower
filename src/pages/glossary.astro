@@ -13,10 +13,15 @@ const glossary = (await getCollection('glossary'));
 	<dl>
 	{
 		glossary.map(g => {
-			const {id, word, definition} = g.data
+			const {id, word, definition, seeAlso} = g.data
+			console.log(seeAlso)
 			return (
 				<dt id={id}>{word}</dt>
-				<dd>{definition}</dd>
+				<dd>
+					<p>{definition}</p>
+					{seeAlso && 'See Also: '}
+					{seeAlso?.map(s => <a class="seealso" href={`#${s}`}>{s}</a>)}
+				</dd>
 			);
 		})
 	}
@@ -27,5 +32,10 @@ const glossary = (await getCollection('glossary'));
 		margin-top: 1.2em;
 		margin-bottom: 0.5em;
 		font-weight: bold;
+	}
+
+	.seealso {
+		margin-right: 0.3em;
+		padding: 0.2em;
 	}
 </style>
