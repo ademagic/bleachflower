@@ -144,4 +144,4 @@ const pc = defineCollection({
 	}),
 });
 
-export const collections = { blog, glossary, item, pc, npc, mob, attackSpell };
+export const collections = { glossary, item, pc, npc, mob, attackSpell };
