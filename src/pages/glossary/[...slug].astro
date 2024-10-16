@@ -1,20 +1,35 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import Layout from '../../layouts/BlogPost.astro';
 import { getCollection } from 'astro:content';
 
 const glossary = (await getCollection('glossary'));
+const props = Astro.props;
 
+export async function getStaticPaths() {
+	const glossary = await getCollection('glossary');
+	const sections = [...new Set(glossary.map(g => g.id.substring(0, g.id.indexOf('/'))))];
+
+	return sections.map((s) => ({
+		params: { slug: s },
+		props: {
+			s,
+			items: glossary.filter(g =>(g.id.substring(0, g.id.indexOf('/')) === s)),
+		},
+	}));
+}
+
+console.log(props);
 ---
 
 <Layout
-	title="Glossary"
+	title=`Glossary – ${props.s}`
 	description="Words you might hear, and their definitions"
 >
 	<dl>
 	{
-		glossary.map(g => {
+		props.items.map(g => {
+
 			const {id, word, definition, seeAlso} = g.data
-			console.log(seeAlso)
 			return (
 				<dt id={id}>{word}</dt>
 				<dd>
