@@ -129,6 +129,7 @@ const npc = defineCollection({
 	type: 'data',
 	schema: z.object({
 		...obj_character,
+		notes: z.array(z.string()).optional()
 	}),
 });
 
