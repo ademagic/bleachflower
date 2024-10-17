@@ -17,13 +17,10 @@ export async function getStaticPaths() {
 		},
 	}));
 }
-
-console.log(props);
 ---
 
 <Layout
-	title=`Glossary – ${props.s}`
-	description="Words you might hear, and their definitions"
+	title=`${props.s}`
 >
 	<dl>
 	{
@@ -35,7 +32,7 @@ console.log(props);
 				<dd>
 					<p>{definition}</p>
 					{seeAlso && 'See Also: '}
-					{seeAlso?.map(s => <a class="seealso" href={`#${s}`}>{s}</a>)}
+					{seeAlso?.map(s => <a class="seealso" href={`/bleachflower/glossary${s.link}`}>{s.label}</a>)}
 				</dd>
 			);
 		})
