@@ -1,0 +1,9 @@
+{
+    "id": "january",
+    "word": "January",
+    "definition": "A branch of Human from the unity of New Janeiro. Descended from generations of engineered humans – tall, broad, and beautiful. You have no physical advantages, but at least people find you nice to look at.",
+    "seeAlso": [
+        {"label": "New Janeiro", "link":"/locations#new-janeiro"},
+        {"label": "Unity", "link":"/lore#unity"}
+    ]
+}
