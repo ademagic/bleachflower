@@ -1,0 +1,9 @@
+{
+    "id": "prickly-pear",
+    "word": "The Prickly Pear",
+    "definition": "The Jewel of Blaine.A quaint saloon, hotel, town hall and courtroom, and anything else really. Manned by a bartender and his Golems, it welcomes all, though the patrons themselves are not all welcoming.",
+    "seeAlso": [{
+        "label": "Blaine",
+        "link": "/locations#blaine"
+    }]
+}

@@ -1,0 +1,9 @@
+{
+    "id": "split-river",
+    "word": "Split River Farms",
+    "definition": "The Homestead and livelihood of the Glott family for many generations. A large farm worked by many inhabitants of Blaine.",
+    "seeAlso": [{
+        "label": "Blaine",
+        "link": "/locations#blaine"
+    }]
+}
