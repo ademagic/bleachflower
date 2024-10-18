@@ -21,7 +21,7 @@ const char = Astro.props;
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title=`Character | ${char.data.name}` description={SITE_DESCRIPTION} />
 		<style>
 			.red {
 				background: red;

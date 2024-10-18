@@ -12,7 +12,7 @@ const sections = [...new Set(glossary.map(g => g.id.substring(0, g.id.indexOf('/
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title=`${SITE_TITLE} - Glossary` description={SITE_DESCRIPTION} />
 		<style>
 			main {
 				width: 960px;
