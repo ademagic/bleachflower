@@ -946,60 +946,31 @@ const char = Astro.props;
 	<body>
 		<Header />
 		<main>
+			<section class="header">
+				<div class="grid grid-cols-3 gap-2">
+					<div class="flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg">
+						<div class="p-6 overflow-hidden rounded-md flex justify-center items-center">
+						  <img class="object-cover" src="https://avatar.iran.liara.run/public" alt="profile-picture" />
+						</div>
+						<div class="p-6 text-center">
+						  <h4 class="mb-1 text-xl font-semibold text-slate-800">
+							{char.data.name} {char.data.lastName}
+						  </h4>
+						  <p
+							class="text-sm font-semibold text-slate-500 uppercase">
+							{char.data.race} {char.data.class} (Lvl {char.data.level})
+						  </p>
+						  <p class="text-base text-slate-600 mt-4 font-light">XP: {char.data.xp}</p>
+						</div>
+					  </div>
+						<div class="p-6 col-span-2 bg-white shadow-sm border border-slate-200 rounded-lg">
+							<p class="text-base text-slate-600 mt-4 font-light">{char.data.description}</p>
+							<p class="text-base text-slate-600 mt-4 font-light">{char.data.background}</p>
+						</div>
+				</div>
+			</section>
 			<section>
 				<form class="charsheet">
-					<header>
-						<section class="charname">
-							<label for="charname">Character Name</label>
-							<input name="charname" value={`${char.data.name} ${char.data.lastName}`}/>
-						</section>
-						<section class="misc">
-							<ul>
-								<li>
-									<label for="classlevel">Class & Level</label
-									><input
-										name="classlevel"
-										value=`${char.data.class} ${char.data.level}`
-									/>
-								</li>
-								<li>
-									<label for="background">Background</label
-									><input
-										name="background"
-										value=`${char.data.background}`
-									/>
-								</li>
-								<li>
-									<label for="alias">Alias</label
-									><input
-										name="alias"
-										value=`${char.data.alias}`
-									/>
-								</li>
-								<li>
-									<label for="race">Race</label><input
-										name="race"
-										value=`${char.data.race}`
-									/>
-								</li>
-								<li>
-									<label for="experiencepoints"
-										>Experience Points</label
-									><input
-										name="experiencepoints"
-										value=`${char.data.xp}`
-									/>
-								</li>
-								<li>
-									<label for="description">Description</label
-									><input
-										name="description"
-										value=`${char.data.description}`
-									/>
-								</li>
-							</ul>
-						</section>
-					</header>
 					<main>
 						<section>
 							<section class="attributes">
