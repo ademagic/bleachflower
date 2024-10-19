@@ -1,7 +1,10 @@
 ---
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+
+import { SITE_DESCRIPTION } from "../../consts";
+
+import Stat from './components/Stat.astro';
 
 import { type CollectionEntry, getCollection } from 'astro:content';
 
@@ -15,6 +18,8 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'pc'>;
 
 const char = Astro.props;
+
+const box = "bg-white shadow-sm border border-slate-200 rounded-lg mb-2"
 
 ---
 
@@ -948,11 +953,11 @@ const char = Astro.props;
 		<main>
 			<section class="header">
 				<div class="grid grid-cols-1 sm:grid-cols-3 sm:gap-2">
-					<div class="flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg mb-2">
-						<div class="p-6 overflow-hidden rounded-md flex justify-center items-center">
+					<div class=`flex flex-col p-6 ${box}`>
+						<div class="overflow-hidden rounded-md flex justify-center items-center">
 						  <img class="object-cover" src="https://avatar.iran.liara.run/public" alt="profile-picture" />
 						</div>
-						<div class="p-6 text-center">
+						<div class="mt-2 text-center">
 						  <h4 class="mb-1 text-xl font-semibold text-slate-800">
 							{char.data.name} {char.data.lastName}
 						  </h4>
@@ -963,489 +968,26 @@ const char = Astro.props;
 						  <p class="text-base text-slate-600 mt-4 font-light">LVL: {char.data.level} XP: {char.data.xp}</p>
 						</div>
 					</div>
-					<div class="p-6 col-span-2 bg-white shadow-sm border border-slate-200 rounded-lg mb-2">
+					<div class=`p-6 col-span-2 ${box}`>
 						<p class="text-base text-slate-600 mt-4 font-light">{char.data.description}</p>
 						<p class="text-base text-slate-600 mt-4 font-light">{char.data.background}</p>
 					</div>
+				</div>
+			</section>
+			<section class="stats">
+				<div class=`${box} grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 sm:gap-2 p-3`>
+					<Stat name="Strength" stat={char.data.attributes.str} mod={char.data.attributes.str_mod} />
+					<Stat name="Dexterity" stat={char.data.attributes.dex} mod={char.data.attributes.dex_mod} />
+					<Stat name="Constitution" stat={char.data.attributes.con} mod={char.data.attributes.con_mod} />
+					<Stat name="Wisdom" stat={char.data.attributes.wis} mod={char.data.attributes.wis_mod} />
+					<Stat name="Intelligence" stat={char.data.attributes.int} mod={char.data.attributes.int_mod} />
+					<Stat name="Charisma" stat={char.data.attributes.cha} mod={char.data.attributes.cha_mod} />
 				</div>
 			</section>
 			<section>
 				<form class="charsheet">
 					<main>
 						<section>
-							<section class="attributes">
-								<div class="scores">
-									<ul>
-										<li>
-											<div class="score">
-												<label for="Strengthscore"
-													>Strength</label
-												><input
-													name="Strengthscore"
-													value={char.data.attributes.str}
-												/>
-											</div>
-											<div class="modifier">
-												<input
-													name="Strengthmod"
-													value=`+${char.data.attributes.str_mod}`
-												/>
-											</div>
-										</li>
-										<li>
-											<div class="score">
-												<label for="Dexterityscore"
-													>Dexterity</label
-												><input
-													name="Dexterityscore"
-													value={char.data.attributes.dex}
-												/>
-											</div>
-											<div class="modifier">
-												<input
-													name="Dexteritymod"
-													value={char.data.attributes.dex_mod}
-												/>
-											</div>
-										</li>
-										<li>
-											<div class="score">
-												<label for="Constitutionscore"
-													>Constitution</label
-												><input
-													name="Constitutionscore"
-													value={char.data.attributes.con}
-												/>
-											</div>
-											<div class="modifier">
-												<input
-													name="Constitutionmod"
-													value={char.data.attributes.con_mod}
-												/>
-											</div>
-										</li>
-										<li>
-											<div class="score">
-												<label for="Wisdomscore"
-													>Wisdom</label
-												><input
-													name="Wisdomscore"
-													value={char.data.attributes.wis}
-												/>
-											</div>
-											<div class="modifier">
-												<input
-													name="Wisdommod"
-													value={char.data.attributes.wis_mod}
-												/>
-											</div>
-										</li>
-										<li>
-											<div class="score">
-												<label for="Intelligencescore"
-													>Intelligence</label
-												><input
-													name="Intelligencescore"
-													value={char.data.attributes.int}
-												/>
-											</div>
-											<div class="modifier">
-												<input
-													name="Intelligencemod"
-													value={char.data.attributes.int_mod}
-												/>
-											</div>
-										</li>
-										<li>
-											<div class="score">
-												<label for="Charismascore"
-													>Charisma</label
-												><input
-													name="Charismascore"
-													value={char.data.attributes.cha}
-												/>
-											</div>
-											<div class="modifier">
-												<input
-													name="Charismamod"
-													value={char.data.attributes.cha_mod}
-												/>
-											</div>
-										</li>
-									</ul>
-								</div>
-								<div class="attr-applications">
-									<div class="inspiration box">
-										<div class="label-container">
-											<label for="inspiration"
-												>Inspiration</label
-											>
-										</div>
-										<input
-											name="inspiration"
-											type="checkbox"
-										/>
-									</div>
-									<div class="proficiencybonus box">
-										<div class="label-container">
-											<label for="proficiencybonus"
-												>Proficiency Bonus</label
-											>
-										</div>
-										<input
-											name="proficiencybonus"
-											value={char.data.attributes.proficiency}
-										/>
-									</div>
-									<div class="saves list-section box">
-										<ul>
-											<li>
-												<label for="Strength-save"
-													>Strength</label
-												><input
-													name="Strength-save"
-													value={char.data.attributes.str_sav}
-													type="text"
-												/><input
-													name="Strength-save-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Dexterity-save"
-													>Dexterity</label
-												><input
-													name="Dexterity-save"
-													value={char.data.attributes.dex_sav}
-													type="text"
-												/><input
-													name="Dexterity-save-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Constitution-save"
-													>Constitution</label
-												><input
-													name="Constitution-save"
-													value={char.data.attributes.con_sav}
-													type="text"
-												/><input
-													name="Constitution-save-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Wisdom-save"
-													>Wisdom</label
-												><input
-													name="Wisdom-save"
-													value={char.data.attributes.wis_sav}
-													type="text"
-												/><input
-													name="Wisdom-save-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Intelligence-save"
-													>Intelligence</label
-												><input
-													name="Intelligence-save"
-													value={char.data.attributes.int_sav}
-													type="text"
-												/><input
-													name="Intelligence-save-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Charisma-save"
-													>Charisma</label
-												><input
-													name="Charisma-save"
-													value={char.data.attributes.cha_sav}
-													type="text"
-												/><input
-													name="Charisma-save-prof"
-													type="checkbox"
-												/>
-											</li>
-										</ul>
-										<div class="label">Saving Throws</div>
-									</div>
-									<div class="skills list-section box">
-										<ul>
-											<li>
-												<label for="Acrobatics"
-													>Acrobatics <span
-														class="skill"
-														>(Dex)</span
-													></label
-												><input
-													name="Acrobatics"
-													value={char.data.skills.acrobatics}
-													type="text"
-												/><input
-													name="Acrobatics-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Animal Handling"
-													>Animal Handling <span
-														class="skill"
-														>(Wis)</span
-													></label
-												><input
-													name="Animal Handling"
-													value={char.data.skills.animalHandling}
-													type="text"
-												/><input
-													name="Animal Handling-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Ether"
-													>Ether <span class="skill"
-														>(Int)</span
-													></label
-												><input
-													name="Ether"
-													value={char.data.skills.ether}
-													type="text"
-												/><input
-													name="Ether-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Athletics"
-													>Athletics <span
-														class="skill"
-														>(Str)</span
-													></label
-												><input
-													name="Athletics"
-													value={char.data.skills.athletics}
-													type="text"
-												/><input
-													name="Athletics-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Deception"
-													>Deception <span
-														class="skill"
-														>(Cha)</span
-													></label
-												><input
-													name="Deception"
-													value={char.data.skills.deception}
-													type="text"
-												/><input
-													name="Deception-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="History"
-													>History <span class="skill"
-														>(Int)</span
-													></label
-												><input
-													name="History"
-													value={char.data.skills.history}
-													type="text"
-												/><input
-													name="History-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Insight"
-													>Insight <span class="skill"
-														>(Wis)</span
-													></label
-												><input
-													name="Insight"
-													value={char.data.skills.insight}
-													type="text"
-												/><input
-													name="Insight-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Intimidation"
-													>Intimidation <span
-														class="skill"
-														>(Cha)</span
-													></label
-												><input
-													name="Intimidation"
-													value={char.data.skills.intimidation}
-													type="text"
-												/><input
-													name="Intimidation-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Investigation"
-													>Investigation <span
-														class="skill"
-														>(Int)</span
-													></label
-												><input
-													name="Investigation"
-													value={char.data.skills.investigation}
-													type="text"
-												/><input
-													name="Investigation-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Medicine"
-													>Medicine <span
-														class="skill"
-														>(Wis)</span
-													></label
-												><input
-													name="Medicine"
-													value={char.data.skills.medicine}
-													type="text"
-												/><input
-													name="Medicine-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Nature"
-													>Nature <span class="skill"
-														>(Int)</span
-													></label
-												><input
-													name="Nature"
-													value={char.data.skills.nature}
-													type="text"
-												/><input
-													name="Nature-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Perception"
-													>Perception <span
-														class="skill"
-														>(Wis)</span
-													></label
-												><input
-													name="Perception"
-													value={char.data.skills.perception}
-													type="text"
-												/><input
-													name="Perception-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Performance"
-													>Performance <span
-														class="skill"
-														>(Cha)</span
-													></label
-												><input
-													name="Performance"
-													value={char.data.skills.performance}
-													type="text"
-												/><input
-													name="Performance-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Persuasion"
-													>Persuasion <span
-														class="skill"
-														>(Cha)</span
-													></label
-												><input
-													name="Persuasion"
-													value={char.data.skills.persuasion}
-													type="text"
-												/><input
-													name="Persuasion-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Religion"
-													>Religion <span
-														class="skill"
-														>(Int)</span
-													></label
-												><input
-													name="Religion"
-													value={char.data.skills.religion}
-													type="text"
-												/><input
-													name="Religion-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Sleight of Hand"
-													>Sleight of Hand <span
-														class="skill"
-														>(Dex)</span
-													></label
-												><input
-													name="Sleight of Hand"
-													value={char.data.skills.sleightOfHand}
-													type="text"
-												/><input
-													name="Sleight of Hand-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Stealth"
-													>Stealth <span class="skill"
-														>(Dex)</span
-													></label
-												><input
-													name="Stealth"
-													value={char.data.skills.stealth}
-													type="text"
-												/><input
-													name="Stealth-prof"
-													type="checkbox"
-												/>
-											</li>
-											<li>
-												<label for="Survival"
-													>Survival <span
-														class="skill"
-														>(Wis)</span
-													></label
-												><input
-													name="Survival"
-													value={char.data.skills.survival}
-													type="text"
-												/><input
-													name="Survival-prof"
-													type="checkbox"
-												/>
-											</li>
-										</ul>
-										<div class="label">Skills</div>
-									</div>
-								</div>
-							</section>
 							<div class="passive-perception box">
 								<div class="label-container">
 									<label for="passiveperception"

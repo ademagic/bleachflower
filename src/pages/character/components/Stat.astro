@@ -1,0 +1,20 @@
+---
+interface Props {
+	name: string;
+	stat: string;
+	mod?: string;
+}
+
+const { name, stat, mod = '0' } = Astro.props;
+---
+<div class="text-center">
+    <h5 class="text-center text-sm mb-2 text-slate-800">
+        {name}
+    </h5>
+    <p class="text-center text-4xl mb-2 font-semibold text-slate-800">
+        {stat}
+    </p>
+    <span class="text-md mb-0 font-semibold text-slate-800 rounded-lg px-3 py-2 border border-slate-200">
+        {mod}
+    </span>
+</div>
