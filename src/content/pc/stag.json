@@ -60,7 +60,7 @@
     "passiveWisdom":"0",
     "otherProficienciesAndLanguages":"natural affinity for knots and knot-tying, can whistle really well",
     "combat":{
-        "armorClass":0,
+        "armorClass":4,
         "initiative":0,
         "speed":5,
         "hp":10,
@@ -71,8 +71,18 @@
         "deathsave_success":0,
         "deathsave_failure":0
     },
-    "equipment":[],
-    "attacksSpells":[],
+    "equipment":["sleeping bag", "pack of cigarillos", "hunter's knife", "coil of rope"],
+    "gear": {
+		"trinket1": [],
+		"trinket2": [],
+		"leftHand": ["leather fingerless glove", "string bracelet"],
+		"rightHand": ["leather fingerless glove", "simple six-shooter"],
+		"head": ["learther wide-brimmed hat"],
+		"body": ["leather vest", "denim shirt", "bandolier (24x)"],
+		"legs": ["denim pants"],
+		"boots": ["leather boots"]
+	},
+    "attacksSpells":["shoot"],
     "money":2,
     "flavor":{
         "personality":["narcissistic", "brash", "gruff"],

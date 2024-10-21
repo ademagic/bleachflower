@@ -79,7 +79,7 @@ const skills = Object.entries(char.data.skills);
 						<div class=`grid grid-cols-3 gap-2`>
 							<Stat name="Inspiration" stat={char.data.attributes.inspiration} showMod={false} size="xl"/>
 							<Stat name="Proficiency" stat={char.data.attributes.proficiency} showMod={false} size="xl" />
-							<Stat name="Passive Wisdom" stat={char.data.attributes.passiveWisdom} showMod={false} size="xl" />
+							<Stat name="Passive Wisdom" stat={char.data.passiveWisdom} showMod={false} size="xl" />
 						</div>
 							<div class="character my-6 text-center">
 								<div class="grid grid-rows-4 grid-cols-4 gap-1">
@@ -123,9 +123,11 @@ const skills = Object.entries(char.data.skills);
 							</div>
 							<div class=`${box} p-3`>
 								<p class=`${subtitle}`>Attacks & Spellcasting</p>
-								{
-									char.data.attacksSpells.map(as => <li>{as}</li>)
-								}
+								<ul class=`${baseText}`>
+									{
+										char.data.attacksSpells.map(as => <li>{as}</li>)
+									}
+								</ul>
 							</div>
 					</div>
 					<div>
