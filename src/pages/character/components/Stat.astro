@@ -3,18 +3,21 @@ interface Props {
 	name: string;
 	stat: string;
 	mod?: string;
+    showMod?: boolean;
+    size?: string;
 }
 
-const { name, stat, mod = '0' } = Astro.props;
+const { name, stat = '0', mod = '0', showMod = true, size = "4xl" } = Astro.props;
+
 ---
 <div class="text-center">
-    <h5 class="text-center text-sm mb-2 text-slate-800">
+    <h5 class="text-center text-sm mb-2 text-slate-800 truncate">
         {name}
     </h5>
-    <p class="text-center text-4xl mb-2 font-semibold text-slate-800">
+    <p class=`text-center text-${size} mb-2 font-semibold text-slate-800`>
         {stat}
     </p>
-    <span class="text-md mb-0 font-semibold text-slate-800 rounded-lg px-3 py-2 border border-slate-200">
+    {showMod && <span class="text-md mb-0 font-semibold text-slate-800 rounded-lg px-3 py-2 border border-slate-200">
         {mod}
-    </span>
+    </span>}
 </div>

@@ -19,934 +19,19 @@ type Props = CollectionEntry<'pc'>;
 
 const char = Astro.props;
 
-const box = "bg-white shadow-sm border border-slate-200 rounded-lg mb-2"
+const box = "bg-white shadow-sm border border-slate-200 rounded-lg mb-2";
 
+const baseText="text-base text-slate-600 mt-4 font-light"
+const subtitle = "text-sm font-semibold text-slate-500 uppercase";
+const tinytitle = "text-xs text-slate-500 uppercase";
+
+const skills = Object.entries(char.data.skills);
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title=`Character | ${char.data.name}` description={SITE_DESCRIPTION} />
-		<style>
-			.red {
-				background: red;
-			}
-
-			.blue {
-				background: blue;
-			}
-
-			.hide {
-				display: none !important;
-			}
-
-			textarea {
-				font-size: 12px;
-				text-align: left;
-				width: calc(100% - 20px - 2px);
-				border-radius: 10px;
-				padding: 10px;
-				resize: none;
-				overflow: hidden;
-				height: 15em;
-			}
-
-			input[type="checkbox"] {
-				cursor: pointer;
-			}
-
-			div.box {
-				margin-top: 10px;
-			}
-
-			form.charsheet {
-				width: 800px;
-				right: 0;
-				left: 0;
-				margin-right: auto;
-				margin-left: auto;
-				margin-top: 10px;
-			}
-			form.charsheet div.textblock {
-				display: flex;
-				flex-direction: column-reverse;
-				width: 100%;
-				align-items: center;
-			}
-			form.charsheet div.textblock label {
-				text-align: center;
-				border: 1px solid black;
-				border-top: 0;
-				font-size: 10px;
-				width: calc(100% - 20px - 2px);
-				border-radius: 0 0 10px 10px;
-				padding: 4px 0;
-				font-weight: bold;
-			}
-			form.charsheet div.textblock textarea {
-				border: 1px solid black;
-			}
-			form.charsheet ul {
-				margin: 0;
-				padding: 0;
-			}
-			form.charsheet ul li {
-				list-style-image: none;
-				display: block;
-			}
-			form.charsheet ::-moz-placeholder {
-				color: #bbb;
-			}
-			form.charsheet :-ms-input-placeholder {
-				color: #bbb;
-			}
-			form.charsheet ::placeholder {
-				color: #bbb;
-			}
-			form.charsheet label {
-				text-transform: uppercase;
-				font-size: 12px;
-			}
-			form.charsheet header {
-				display: flex;
-				align-contents: stretch;
-				align-items: stretch;
-			}
-			form.charsheet header section.charname {
-				border: 1px solid black;
-				border-right: 0;
-				border-radius: 10px 0 0 10px;
-				padding: 5px 0;
-				background-color: #eee;
-				width: 30%;
-				display: flex;
-				flex-direction: column-reverse;
-				bottom: 0;
-				top: 0;
-				margin: auto;
-			}
-			form.charsheet header section.charname input {
-				padding: 0.5em;
-				margin: 5px;
-				border: 0;
-			}
-			form.charsheet header section.charname label {
-				padding-left: 1em;
-			}
-			form.charsheet header section.misc {
-				width: 70%;
-				border: 1px solid black;
-				border-radius: 10px;
-				padding-left: 1em;
-				padding-right: 1em;
-			}
-			form.charsheet header section.misc ul {
-				padding: 10px 0px 5px 0px;
-				display: flex;
-				flex-wrap: wrap;
-			}
-			form.charsheet header section.misc ul li {
-				width: 50%;
-				display: flex;
-				flex-direction: column-reverse;
-			}
-			form.charsheet header section.misc ul li:nth-child(3n) {
-				width: 100%;
-			}
-			form.charsheet header section.misc ul li label {
-				margin-bottom: 5px;
-			}
-			form.charsheet header section.misc ul li input {
-				border: 0;
-				border-bottom: 1px solid #ddd;
-			}
-			form.charsheet main {
-				display: flex;
-				justify-content: space-between;
-				margin-top: 20px;
-			}
-			form.charsheet main div.label-container {
-				position: relative;
-				width: 100%;
-				height: 18px;
-				margin-top: 6px;
-				border: 1px solid black;
-				border-left: 0;
-				text-align: center;
-			}
-			form.charsheet main div.label-container > label {
-				position: absolute;
-				left: 0;
-				top: 1px;
-				transform: translate(0%, 50%);
-				width: 100%;
-				font-size: 8px;
-			}
-			form.charsheet main > section {
-				width: 32%;
-				display: flex;
-				flex-direction: column;
-			}
-			form.charsheet main > section section.attributes {
-				width: 100%;
-				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-			}
-			form.charsheet main > section section.attributes div.scores {
-				width: 101px;
-				background-color: #bbb;
-				border-radius: 10px;
-				padding-bottom: 5px;
-			}
-			form.charsheet main > section section.attributes div.scores label {
-				font-size: 8px;
-				font-weight: bold;
-			}
-			form.charsheet main > section section.attributes div.scores ul {
-				display: flex;
-				flex-direction: column;
-				justify-content: space-around;
-				align-items: center;
-				height: 100%;
-			}
-			form.charsheet main > section section.attributes div.scores ul li {
-				height: 90px;
-				width: 70px;
-				background-color: white;
-				border: 1px solid black;
-				text-align: center;
-				display: flex;
-				flex-direction: column;
-				border-radius: 10px;
-				margin-bottom: 1.5em;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.scores
-				ul
-				li
-				input {
-				width: 100%;
-				padding: 0;
-				border: 0;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.scores
-				ul
-				li
-				div.score
-				input {
-				text-align: center;
-				font-size: 40px;
-				padding: 2px 0px 0px 0px;
-				background: white;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.scores
-				ul
-				li
-				div.modifier {
-				margin-top: 3px;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.scores
-				ul
-				li
-				div.modifier
-				input {
-				background: white;
-				width: 30px;
-				height: 20px;
-				border: 1px inset black;
-				border-radius: 20px;
-				margin: -1px;
-				text-align: center;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.attr-applications
-				div.inspiration {
-				display: flex;
-				flex-direction: row-reverse;
-				justify-content: flex-end;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.attr-applications
-				div.inspiration
-				input {
-				-webkit-appearance: none;
-				-moz-appearance: none;
-				appearance: none;
-				border: 1px solid black;
-				padding: 15px;
-				border-radius: 10px;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.attr-applications
-				div.proficiencybonus {
-				display: flex;
-				flex-direction: row-reverse;
-				justify-content: flex-end;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.attr-applications
-				div.proficiencybonus
-				input {
-				width: 30px;
-				height: 28px;
-				border: 1px solid black;
-				text-align: center;
-				border-radius: 10px;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.attr-applications
-				div.list-section {
-				border: 1px solid black;
-				border-radius: 10px;
-				padding: 10px 5px;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.attr-applications
-				div.list-section
-				div.label {
-				margin-top: 10px;
-				margin-bottom: 2.5px;
-				text-align: center;
-				text-transform: uppercase;
-				font-size: 10px;
-				font-weight: bold;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.attr-applications
-				div.list-section
-				ul
-				li {
-				display: flex;
-				align-items: center;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.attr-applications
-				div.list-section
-				ul
-				li
-				> * {
-				margin-left: 5px;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.attr-applications
-				div.list-section
-				ul
-				li
-				label {
-				text-transform: none;
-				font-size: 8px;
-				text-align: left;
-				order: 3;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.attr-applications
-				div.list-section
-				ul
-				li
-				label
-				span.skill {
-				color: #bbb;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.attr-applications
-				div.list-section
-				ul
-				li
-				input[type="text"] {
-				width: 30px;
-				font-size: 12px;
-				text-align: center;
-				border: 0;
-				border-bottom: 1px solid black;
-				order: 2;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.attr-applications
-				div.list-section
-				ul
-				li
-				input[type="checkbox"] {
-				-webkit-appearance: none;
-				-moz-appearance: none;
-				appearance: none;
-				width: 10px;
-				height: 10px;
-				border: 1px solid black;
-				border-radius: 10px;
-				order: 1;
-			}
-			form.charsheet
-				main
-				> section
-				section.attributes
-				div.attr-applications
-				div.list-section
-				ul
-				li
-				input[type="checkbox"]:checked {
-				background-color: black;
-			}
-			form.charsheet main > section div.passive-perception {
-				display: flex;
-				flex-direction: row-reverse;
-				justify-content: flex-end;
-			}
-			form.charsheet main > section div.passive-perception input {
-				width: 30px;
-				height: 28px;
-				text-align: center;
-				border: 1px solid black;
-				border-radius: 10px;
-			}
-			form.charsheet main > section div.otherprofs textarea {
-				height: 26em;
-			}
-			form.charsheet main section.combat {
-				background-color: #eee;
-				display: flex;
-				flex-wrap: wrap;
-				border-radius: 10px;
-			}
-			form.charsheet main section.combat > div {
-				overflow: hidden;
-			}
-			form.charsheet main section.combat > div.armorclass,
-			form.charsheet main section.combat > div.initiative,
-			form.charsheet main section.combat > div.speed {
-				flex-basis: 33.333%;
-			}
-			form.charsheet main section.combat > div.armorclass > div,
-			form.charsheet main section.combat > div.initiative > div,
-			form.charsheet main section.combat > div.speed > div {
-				display: flex;
-				flex-direction: column-reverse;
-				align-items: center;
-				margin-top: 10px;
-			}
-			form.charsheet main section.combat > div.armorclass > div label,
-			form.charsheet main section.combat > div.initiative > div label,
-			form.charsheet main section.combat > div.speed > div label {
-				font-size: 8px;
-				width: 50px;
-				border: 1px solid black;
-				border-top: 0;
-				background-color: white;
-				text-align: center;
-				padding-top: 5px;
-				padding-bottom: 5px;
-				border-radius: 0 0 10px 10px;
-			}
-			form.charsheet main section.combat > div.armorclass > div input,
-			form.charsheet main section.combat > div.initiative > div input,
-			form.charsheet main section.combat > div.speed > div input {
-				height: 70px;
-				width: 70px;
-				border-radius: 10px;
-				border: 1px solid black;
-				text-align: center;
-				font-size: 30px;
-			}
-			form.charsheet main section.combat > div.hp {
-				flex-basis: 100%;
-			}
-			form.charsheet main section.combat > div.hp > div.regular {
-				background-color: white;
-				border: 1px solid black;
-				margin: 10px;
-				margin-bottom: 5px;
-				border-radius: 10px 10px 0 0;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.hp
-				> div.regular
-				> div.max {
-				display: flex;
-				justify-content: space-around;
-				align-items: baseline;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.hp
-				> div.regular
-				> div.max
-				label {
-				font-size: 10px;
-				text-transform: none;
-				color: #bbb;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.hp
-				> div.regular
-				> div.max
-				input {
-				width: 40%;
-				border: 0;
-				border-bottom: 1px solid #ddd;
-				font-size: 12px;
-				text-align: center;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.hp
-				> div.regular
-				> div.current {
-				display: flex;
-				flex-direction: column-reverse;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.hp
-				> div.regular
-				> div.current
-				input {
-				border: 0;
-				width: 100%;
-				padding: 1em 0;
-				font-size: 20px;
-				text-align: center;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.hp
-				> div.regular
-				> div.current
-				label {
-				font-size: 10px;
-				padding-bottom: 5px;
-				text-align: center;
-				font-weight: bold;
-			}
-			form.charsheet main section.combat > div.hp > div.temporary {
-				margin: 10px;
-				margin-top: 0;
-				border: 1px solid black;
-				border-radius: 0 0 10px 10px;
-				display: flex;
-				flex-direction: column-reverse;
-				background-color: white;
-			}
-			form.charsheet main section.combat > div.hp > div.temporary input {
-				padding: 1em 0;
-				font-size: 20px;
-				border: 0;
-				text-align: center;
-			}
-			form.charsheet main section.combat > div.hp > div.temporary label {
-				font-size: 10px;
-				padding-bottom: 5px;
-				text-align: center;
-				font-weight: bold;
-			}
-			form.charsheet main section.combat > div.hitdice,
-			form.charsheet main section.combat > div.deathsaves {
-				flex: 1 50%;
-				height: 100px;
-			}
-			form.charsheet main section.combat > div.hitdice > div,
-			form.charsheet main section.combat > div.deathsaves > div {
-				height: 90px;
-			}
-			form.charsheet main section.combat > div.hitdice > div {
-				background-color: white;
-				margin: 10px;
-				border: 1px solid black;
-				border-radius: 10px;
-				display: flex;
-				flex-direction: column;
-			}
-			form.charsheet main section.combat > div.hitdice > div > div.total {
-				display: flex;
-				align-items: baseline;
-				justify-content: space-around;
-				padding: 5px 0;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.hitdice
-				> div
-				> div.total
-				label {
-				font-size: 10px;
-				color: #bbb;
-				margin: 0.25em;
-				text-transform: none;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.hitdice
-				> div
-				> div.total
-				input {
-				font-size: 12px;
-				flex-grow: 1;
-				border: 0;
-				border-bottom: 1px solid #ddd;
-				width: 50%;
-				margin-right: 0.25em;
-				padding: 0 0.25em;
-				text-align: center;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.hitdice
-				> div
-				> div.remaining {
-				flex: 1;
-				display: flex;
-				flex-direction: column-reverse;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.hitdice
-				> div
-				> div.remaining
-				label {
-				text-align: center;
-				padding: 2px;
-				font-size: 10px;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.hitdice
-				> div
-				> div.remaining
-				input {
-				text-align: center;
-				border: 0;
-				flex: 1;
-			}
-			form.charsheet main section.combat > div.deathsaves > div {
-				margin: 10px;
-				background: white;
-				border: 1px solid black;
-				border-radius: 10px;
-				display: flex;
-				flex-direction: column-reverse;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.deathsaves
-				> div
-				> div.label {
-				text-align: center;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.deathsaves
-				> div
-				> div.label
-				label {
-				font-size: 10px;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.deathsaves
-				> div
-				> div.marks {
-				display: flex;
-				flex: 1;
-				flex-direction: column;
-				justify-content: center;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.deathsaves
-				> div
-				> div.marks
-				div.deathsuccesses,
-			form.charsheet
-				main
-				section.combat
-				> div.deathsaves
-				> div
-				> div.marks
-				div.deathfails {
-				display: flex;
-				align-items: center;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.deathsaves
-				> div
-				> div.marks
-				div.deathsuccesses
-				label,
-			form.charsheet
-				main
-				section.combat
-				> div.deathsaves
-				> div
-				> div.marks
-				div.deathfails
-				label {
-				font-size: 8px;
-				text-align: right;
-				flex: 1 50%;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.deathsaves
-				> div
-				div.bubbles {
-				flex: 1 40%;
-				margin-left: 5px;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.deathsaves
-				> div
-				div.bubbles
-				input[type="checkbox"] {
-				-webkit-appearance: none;
-				-moz-appearance: none;
-				appearance: none;
-				width: 10px;
-				height: 10px;
-				border: 1px solid black;
-				border-radius: 10px;
-			}
-			form.charsheet
-				main
-				section.combat
-				> div.deathsaves
-				> div
-				div.bubbles
-				input[type="checkbox"]:checked {
-				background-color: black;
-			}
-			form.charsheet main section.attacksandspellcasting {
-				border: 1px solid black;
-				border-radius: 10px;
-				margin-top: 10px;
-			}
-			form.charsheet main section.attacksandspellcasting > div {
-				margin: 10px;
-				display: flex;
-				flex-direction: column;
-			}
-			form.charsheet main section.attacksandspellcasting > div > label {
-				order: 3;
-				text-align: center;
-			}
-			form.charsheet main section.attacksandspellcasting > div > table {
-				width: 100%;
-			}
-			form.charsheet
-				main
-				section.attacksandspellcasting
-				> div
-				> table
-				th {
-				font-size: 10px;
-				color: #ddd;
-			}
-			form.charsheet
-				main
-				section.attacksandspellcasting
-				> div
-				> table
-				input {
-				width: calc(100% - 4px);
-				border: 0;
-				background-color: #eee;
-				font-size: 10px;
-				padding: 3px;
-			}
-			form.charsheet main section.attacksandspellcasting > div textarea {
-				border: 0;
-			}
-			form.charsheet main section.equipment {
-				border: 1px solid black;
-				border-radius: 10px;
-				margin-top: 10px;
-			}
-			form.charsheet main section.equipment > div {
-				padding: 10px;
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-			}
-			form.charsheet main section.equipment > div > div.money ul {
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				height: 100%;
-			}
-			form.charsheet main section.equipment > div > div.money ul > li {
-				display: flex;
-				align-items: center;
-			}
-			form.charsheet
-				main
-				section.equipment
-				> div
-				> div.money
-				ul
-				> li
-				label {
-				border: 1px solid black;
-				border-radius: 10px 0 0 10px;
-				border-right: 0;
-				width: 20px;
-				font-size: 8px;
-				text-align: center;
-				padding: 3px 0;
-			}
-			form.charsheet
-				main
-				section.equipment
-				> div
-				> div.money
-				ul
-				> li
-				input {
-				border: 1px solid black;
-				border-radius: 10px;
-				width: 40px;
-				padding: 10px 3px;
-				font-size: 12px;
-				text-align: center;
-			}
-			form.charsheet main section.equipment > div > label {
-				order: 3;
-				text-align: center;
-				flex: 100%;
-			}
-			form.charsheet main section.equipment > div > textarea {
-				flex: 1;
-				border: 0;
-			}
-			form.charsheet main section.flavor {
-				padding: 10px;
-				background: #bbb;
-				border-radius: 10px;
-			}
-			form.charsheet main section.flavor div {
-				background: white;
-				display: flex;
-				flex-direction: column-reverse;
-				padding: 5px;
-				border: 1px solid black;
-			}
-			form.charsheet main section.flavor div label {
-				text-align: center;
-				font-size: 10px;
-				margin-top: 3px;
-			}
-			form.charsheet main section.flavor div textarea {
-				border: 0;
-				border-radius: 0;
-				height: 4em;
-			}
-			form.charsheet main section.flavor div:first-child {
-				border-radius: 10px 10px 0 0;
-			}
-			form.charsheet main section.flavor div:not(:first-child) {
-				margin-top: 10px;
-			}
-			form.charsheet main section.flavor div:last-child {
-				border-radius: 0 0 10px 10px;
-			}
-
-			form.charsheet main section.flavor ul li,
-			form.charsheet main section.features ul li {
-				display: list-item !important;
-				list-style: initial;
-				font-size: 12px;
-				list-style-position: inside;
-			}
-
-			form.charsheet main section.features {
-				padding: 10px;
-			}
-			form.charsheet main section.features div {
-				padding: 10px;
-				border: 1px solid black;
-				border-radius: 10px;
-				display: flex;
-				flex-direction: column-reverse;
-			}
-			form.charsheet main section.features div label {
-				text-align: center;
-			}
-			form.charsheet main section.features div textarea {
-				border: 0;
-				padding: 5px;
-				height: 43em;
-			}
-		</style>
 	</head>
 	<body>
 		<Header />
@@ -965,17 +50,21 @@ const box = "bg-white shadow-sm border border-slate-200 rounded-lg mb-2"
 							class="text-sm font-semibold text-slate-500 uppercase">
 							{char.data.race} {char.data.class}
 						  </p>
-						  <p class="text-base text-slate-600 mt-4 font-light">LVL: {char.data.level} XP: {char.data.xp}</p>
+						  <p class=`${baseText}`>LVL: {char.data.level} XP: {char.data.xp}</p>
 						</div>
 					</div>
 					<div class=`p-6 col-span-2 ${box}`>
-						<p class="text-base text-slate-600 mt-4 font-light">{char.data.description}</p>
-						<p class="text-base text-slate-600 mt-4 font-light">{char.data.background}</p>
+						<p class=`${baseText}`>{char.data.description}</p>
+						<p class=`${baseText}`>{char.data.background}</p>
+						<p class=`${subtitle} mt-6`>Features and Traits</p>
+						<ul class=`${baseText}`>
+							{char.data.flavor.featuresTraits.map(f => <li>{f}</li>)}
+						</ul>
 					</div>
 				</div>
 			</section>
 			<section class="stats">
-				<div class=`${box} grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 sm:gap-2 p-3`>
+				<div class=`${box} grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 sm:gap-2 p-6`>
 					<Stat name="Strength" stat={char.data.attributes.str} mod={char.data.attributes.str_mod} />
 					<Stat name="Dexterity" stat={char.data.attributes.dex} mod={char.data.attributes.dex_mod} />
 					<Stat name="Constitution" stat={char.data.attributes.con} mod={char.data.attributes.con_mod} />
@@ -984,292 +73,114 @@ const box = "bg-white shadow-sm border border-slate-200 rounded-lg mb-2"
 					<Stat name="Charisma" stat={char.data.attributes.cha} mod={char.data.attributes.cha_mod} />
 				</div>
 			</section>
-			<section>
-				<form class="charsheet">
-					<main>
-						<section>
-							<div class="passive-perception box">
-								<div class="label-container">
-									<label for="passiveperception"
-										>Passive Wisdom (Perception)</label
-									>
-								</div>
-								<input
-									name="passiveperception"
-									value={char.data.passiveWisdom}
-									/>
-							</div>
-							<div class="otherprofs box textblock">
-								<label for="otherprofs"
-									>Other Proficiencies and Languages</label
-								><textarea name="otherprofs">{char.data.otherProficienciesAndLanguages}</textarea>
-							</div>
-						</section>
-						<section>
-							<section class="combat">
-								<div class="armorclass">
-									<div>
-										<label for="ac">Armor Class</label
-										><input
-											name="ac"
-											value={char.data.combat.armorClass}
-											type="text"
-										/>
-									</div>
-								</div>
-								<div class="initiative">
-									<div>
-										<label for="initiative"
-											>Initiative</label
-										><input
-											name="initiative"
-											value={char.data.combat.initiative}
-											type="text"
-										/>
-									</div>
-								</div>
-								<div class="speed">
-									<div>
-										<label for="speed">Speed</label><input
-											name="speed"
-											value={char.data.combat.speed}
-											type="text"
-										/>
-									</div>
-								</div>
-								<div class="hp">
-									<div class="regular">
-										<div class="max">
-											<label for="maxhp"
-												>Hit Point Maximum</label
-											><input
-												name="maxhp"
-												value={char.data.combat.hp_max}
-												type="text"
-											/>
-										</div>
-										<div class="current">
-											<label for="currenthp"
-												>Current Hit Points</label
-											><input
-												name="currenthp"
-												value={char.data.combat.hp}
-												type="text"
-											/>
-										</div>
-									</div>
-									<div class="temporary">
-										<label for="temphp"
-											>Temporary Hit Points</label
-										><input name="temphp"
-											value={char.data.combat.hp_temp}
-										type="text" />
-									</div>
-								</div>
-								<div class="hitdice">
-									<div>
-										<div class="total">
-											<label for="totalhd">Total</label
-											><input
-												name="totalhd"
-												placeholder="2d10"
-												type="text"
-											/>
-										</div>
-										<div class="remaining">
-											<label for="remaininghd"
-												>Hit Dice</label
-											><input
-												name="remaininghd"
-												type="text"
-											/>
-										</div>
-									</div>
-								</div>
-								<div class="deathsaves">
-									<div>
-										<div class="label">
-											<label>Death Saves</label>
-										</div>
-										<div class="marks">
-											<div class="deathsuccesses">
-												<label>Successes</label>
-												<div class="bubbles">
-													<input
-														name="deathsuccess1"
-														type="checkbox"
-													/>
-													<input
-														name="deathsuccess2"
-														type="checkbox"
-													/>
-													<input
-														name="deathsuccess3"
-														type="checkbox"
-													/>
-												</div>
-											</div>
-											<div class="deathfails">
-												<label>Failures</label>
-												<div class="bubbles">
-													<input
-														name="deathfail1"
-														type="checkbox"
-													/>
-													<input
-														name="deathfail2"
-														type="checkbox"
-													/>
-													<input
-														name="deathfail3"
-														type="checkbox"
-													/>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</section>
-							<section class="attacksandspellcasting">
-								<div>
-									<label>Attacks & Spellcasting</label>
-									<table>
-										<thead>
-											<tr>
-												<th> Name </th>
-												<th> Atk Bonus </th>
-												<th> Damage/Type </th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>
-													<input
-														name="atkname1"
-														type="text"
-													/>
-												</td>
-												<td>
-													<input
-														name="atkbonus1"
-														type="text"
-													/>
-												</td>
-												<td>
-													<input
-														name="atkdamage1"
-														type="text"
-													/>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<input
-														name="atkname2"
-														type="text"
-													/>
-												</td>
-												<td>
-													<input
-														name="atkbonus2"
-														type="text"
-													/>
-												</td>
-												<td>
-													<input
-														name="atkdamage2"
-														type="text"
-													/>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<input
-														name="atkname3"
-														type="text"
-													/>
-												</td>
-												<td>
-													<input
-														name="atkbonus3"
-														type="text"
-													/>
-												</td>
-												<td>
-													<input
-														name="atkdamage3"
-														type="text"
-													/>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-									<textarea></textarea>
-								</div>
-							</section>
-							<section class="equipment">
-								<div>
-									<label>Equipment</label>
-									<div class="money">
-										<ul>
-											<li>
-												<label for="money">$</label><input
-													name="money"
-													value={char.data.money}
-												/>
-											</li>
-										</ul>
-									</div>
-									<ul>
-										{
-											char.data.equipment.map(e => <li><a href={`/items/${e.id}`}>{e}</a></li>)
-										}
-									</ul>
-								</div>
-							</section>
-						</section>
-						<section>
-							<section class="flavor">
-								<div class="personality">
-									<label for="personality">Personality</label
-									>
-									<ul>
-										{char.data.flavor.personality.map(f => <li>{f}</li>)}
-									</ul>
-								</div>
-								<div class="ideals">
-									<label for="ideals">Ideals</label>
-									<ul>
-										{char.data.flavor.ideals.map(f => <li>{f}</li>)}
-									</ul>
-								</div>
-								<div class="bonds">
-									<label for="bonds">Bonds</label>
-									<ul>
-										{char.data.flavor.bonds.map(f => <li>{f}</li>)}
-									</ul>
-								</div>
-								<div class="flaws">
-									<label for="flaws">Flaws</label>
+			<section class="inv">
 
-									<ul>
-										{char.data.flavor.flaws.map(f => <li>{f}</li>)}
-									</ul>
+				<div class="grid grid-cols-1 sm:grid-cols-3 sm:gap-2">
+					<div class=`p-6 py-4 col-span-2 ${box}`>
+						<div class=`grid grid-cols-3 gap-2`>
+							<Stat name="Inspiration" stat={char.data.attributes.inspiration} showMod={false} size="xl"/>
+							<Stat name="Proficiency" stat={char.data.attributes.proficiency} showMod={false} size="xl" />
+							<Stat name="Passive Wisdom" stat={char.data.attributes.passiveWisdom} showMod={false} size="xl" />
+						</div>
+							<div class="character my-6 text-center">
+								<div class="grid grid-rows-4 grid-cols-4 gap-1">
+									<div class=`trinket1`>
+										<p class={tinytitle}>trinket</p>
+									</div>
+									<div class=`head col-span-2 ${box} p-2`>
+										<p class={tinytitle}>Head</p>
+									</div>
+									<div class=`trinket2`>
+										<p class={tinytitle}>trinket</p>
+									</div>
+									<div class=`rightHand ${box} p-2`>
+										<p class={tinytitle}>right hand</p>
+									</div>
+									<div class=`body col-span-2 ${box} p-2`>
+										<p class={tinytitle}>body</p>
+									</div>
+									<div class=`leftHand ${box} p-2`>
+										<p class={tinytitle}>left hand</p>
+									</div>
+									<div class=`back row-span-2`>
+										<p class={tinytitle}>back</p>
+									</div>
+									<div class=`legs col-span-2 ${box} p-2`>
+										<p class={tinytitle}>legs</p>
+									</div>
+									<div class=`offHand row-span-2`>
+										<p class={tinytitle}>off-hand</p>
+									</div>
+									<div class=`feet col-span-2 ${box} p-2`>
+										<p class={tinytitle}>feet</p>
+									</div>
 								</div>
-							</section>
-							<section class="features">
-								<div>
-									<label for="features"
-										>Features & Traits</label
-									>
-									<ul>
-										{char.data.flavor.featuresTraits.map(f => <li>{f}</li>)}
-									</ul>
-								</div>
-							</section>
-						</section>
-					</main>
-				</form>
+							</div>
+							<div class=`grid grid-cols-3 gap-2 mb-6`>
+								<Stat name="Armor Class" stat={char.data.combat.armorClass} showMod={false} size="xl"/>
+								<Stat name="Initiative" stat={char.data.combat.initiative} showMod={false} size="xl" />
+								<Stat name="Speed" stat={char.data.combat.speed} showMod={false} size="xl" />
+								<Stat name="HP" stat=`${char.data.combat.hp}/${char.data.combat.hp_max}` showMod={false} size="xl"/>
+							</div>
+							<div class=`${box} p-3`>
+								<p class=`${subtitle}`>Attacks & Spellcasting</p>
+							</div>
+					</div>
+					<div>
+						<div class=`p-6 py-4 ${box}`>
+							<p class={subtitle}>Skills</p>
+							<ul>
+								{
+									skills.map((s) => <li class="mb-1"><p class="text-sm"><span class="text-md mb-0 font-semibold text-slate-800 rounded-lg px-3 py-2 border border-slate-200">{s[1]}</span> {s[0]}</p></li>)
+								}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="flavour grid sm:grid-cols-4 gap-1">
+					<div class=`${box} p-3`>
+						<p class=`${subtitle}`>Personality</p
+						>
+						<ul>
+							{char.data.flavor.personality.map(f => <li class={baseText}>{f}</li>)}
+						</ul>
+					</div>
+					<div class=`${box} p-3`>
+						<p class=`${subtitle}`>Ideals</p>
+						<ul>
+							{char.data.flavor.ideals.map(f => <li class={`${baseText}`}>{f}</li>)}
+						</ul>
+					</div>
+					<div class=`${box} p-3`>
+						<p class=`${subtitle}`>Bonds</p>
+						<ul>
+							{char.data.flavor.bonds.map(f => <li class={`${baseText}`}>{f}</li>)}
+						</ul>
+					</div>
+					<div class=`${box} p-3`>
+						<p class=`${subtitle}`>Flaws</p>
+
+						<ul>
+							{char.data.flavor.flaws.map(f => <li class={`${baseText}`}>{f}</li>)}
+						</ul>
+					</div>
+				</section>
+			</section>
+			<section>
+				<div class=`${box} p-6`>
+					<p class=`${subtitle}`>Money: {char.data.money}</p>
+					<p class=`${subtitle}`>Inventory:</p>
+					<ul>
+						{char.data.equipment.map(e => <li>{e}</li>)}
+					</ul>
+				</div>
+				<div class=`${box} p-6`>
+					<p class=`${subtitle}`>Other Proficiencies and Languages</p>
+					<p class=`${baseText}`>
+						{char.data.otherProficienciesAndLanguages}
+					</p>
+				</div>
 			</section>
 		</main>
 	</body>
