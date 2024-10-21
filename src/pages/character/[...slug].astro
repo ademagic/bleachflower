@@ -74,7 +74,6 @@ const skills = Object.entries(char.data.skills);
 				</div>
 			</section>
 			<section class="inv">
-
 				<div class="grid grid-cols-1 sm:grid-cols-3 sm:gap-2">
 					<div class=`p-6 py-4 col-span-2 ${box}`>
 						<div class=`grid grid-cols-3 gap-2`>
@@ -124,6 +123,9 @@ const skills = Object.entries(char.data.skills);
 							</div>
 							<div class=`${box} p-3`>
 								<p class=`${subtitle}`>Attacks & Spellcasting</p>
+								{
+									char.data.attacksSpells.map(as => <li>{as}</li>)
+								}
 							</div>
 					</div>
 					<div>
