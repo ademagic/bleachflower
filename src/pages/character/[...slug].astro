@@ -85,33 +85,63 @@ const skills = Object.entries(char.data.skills);
 								<div class="grid grid-rows-4 grid-cols-4 gap-1">
 									<div class=`trinket1`>
 										<p class={tinytitle}>trinket</p>
+										<ul>
+											{char.data.gear.trinket1?.map(g => <li class={`${baseText}`}>{g}</li>)}
+										</ul>
 									</div>
 									<div class=`head col-span-2 ${box} p-2`>
 										<p class={tinytitle}>Head</p>
+										<ul>
+											{char.data.gear.head?.map(g => <li class={`${baseText}`}>{g}</li>)}
+										</ul>
 									</div>
 									<div class=`trinket2`>
 										<p class={tinytitle}>trinket</p>
+										<ul>
+											{char.data.gear.trinket2?.map(g => <li class={`${baseText}`}>{g}</li>)}
+										</ul>
 									</div>
 									<div class=`rightHand ${box} p-2`>
 										<p class={tinytitle}>right hand</p>
+										<ul>
+											{char.data.gear.rightHand?.map(g => <li class={`${baseText}`}>{g}</li>)}
+										</ul>
 									</div>
 									<div class=`body col-span-2 ${box} p-2`>
 										<p class={tinytitle}>body</p>
+										<ul>
+											{char.data.gear.body?.map(g => <li class={`${baseText}`}>{g}</li>)}
+										</ul>
 									</div>
 									<div class=`leftHand ${box} p-2`>
 										<p class={tinytitle}>left hand</p>
+										<ul>
+											{char.data.gear.leftHand?.map(g => <li class={`${baseText}`}>{g}</li>)}
+										</ul>
 									</div>
 									<div class=`back row-span-2`>
 										<p class={tinytitle}>back</p>
+										<ul>
+											{char.data.gear.back?.map(g => <li class={`${baseText}`}>{g}</li>)}
+										</ul>
 									</div>
 									<div class=`legs col-span-2 ${box} p-2`>
 										<p class={tinytitle}>legs</p>
+										<ul>
+											{char.data.gear.legs?.map(g => <li class={`${baseText}`}>{g}</li>)}
+										</ul>
 									</div>
 									<div class=`offHand row-span-2`>
 										<p class={tinytitle}>off-hand</p>
+										<ul>
+											{char.data.gear.offHand?.map(g => <li class={`${baseText}`}>{g}</li>)}
+										</ul>
 									</div>
 									<div class=`feet col-span-2 ${box} p-2`>
 										<p class={tinytitle}>feet</p>
+										<ul>
+											{char.data.gear.feet?.map(g => <li class={`${baseText}`}>{g}</li>)}
+										</ul>
 									</div>
 								</div>
 							</div>
@@ -175,8 +205,8 @@ const skills = Object.entries(char.data.skills);
 				<div class=`${box} p-6`>
 					<p class=`${subtitle}`>Money: {char.data.money}</p>
 					<p class=`${subtitle}`>Inventory:</p>
-					<ul>
-						{char.data.equipment.map(e => <li>{e}</li>)}
+					<ul class="grid sm:grid-cols-3 md:grid-cols-4">
+						{char.data.equipment.map(e => <li class={`${baseText}`}>{e}</li>)}
 					</ul>
 				</div>
 				<div class=`${box} p-6`>

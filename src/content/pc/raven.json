@@ -60,7 +60,7 @@
     "passiveWisdom":"0",
     "otherProficienciesAndLanguages":"",
     "combat":{
-        "armorClass":0,
+        "armorClass":4,
         "initiative":0,
         "speed":0,
         "hp":10,
@@ -71,14 +71,24 @@
         "deathsave_success":0,
         "deathsave_failure":0
     },
-    "equipment":[],
-    "attacksSpells":[],
+    "equipment":["sleeping bag", "light chain (3m)", "dull blade", "dried soybeans"],
+    "gear": {
+		"trinket1": [],
+		"trinket2": [],
+		"leftHand": [],
+		"rightHand": ["simple zapstick"],
+		"head": [""],
+		"body": ["robe of many pockets", "simple canvas shirt"],
+		"legs": ["burlap pants"],
+		"feet": ["black leather wraps"]
+	},
+    "attacksSpells":["zap"],
     "money":10,
     "flavor":{
         "personality":["keen to try anything", "bad thief"],
         "ideals":["friendship", "stealing"],
         "bonds":["theft; tied to the latest steal", "his friends"],
         "flaws":["kleptomaniac; constantly compulsed to steal", "clumsy; -2 to when rolling for acrobatics or sleight of hand"],
-        "featuresTraits":[""]
+        "featuresTraits":[]
     }
 }

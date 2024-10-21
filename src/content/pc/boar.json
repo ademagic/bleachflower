@@ -60,7 +60,7 @@
     "passiveWisdom":"1",
     "otherProficienciesAndLanguages":"",
     "combat":{
-        "armorClass":0,
+        "armorClass":4,
         "initiative":0,
         "speed":0,
         "hp":10,
@@ -71,8 +71,19 @@
         "deathsave_success":0,
         "deathsave_failure":0
     },
-    "equipment":[],
-    "attacksSpells":[],
+    "equipment":["sleeping bag", "bag of snacking seeds", "dagger", "healing salve", "coil of rope", "Shaktar artificier's toolkit"],
+    "gear": {
+		"trinket1": [],
+		"trinket2": [],
+		"leftHand": [""],
+		"rightHand": ["Blacksmith's Hammer"],
+		"head": ["eye wraps"],
+		"body": ["black cloak", "grey-white shirt"],
+		"legs": ["grey-white pants"],
+		"feet": ["black leather boots"],
+        "back": ["black bag"]
+	},
+    "attacksSpells":["shoot"],
     "money":4,
     "flavor":{
         "personality":["curious, hesitant, quiet, fidgety, adaptable"],

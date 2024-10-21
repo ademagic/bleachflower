@@ -60,7 +60,7 @@
     "passiveWisdom":"0",
     "otherProficienciesAndLanguages":"",
     "combat":{
-        "armorClass":0,
+        "armorClass":4,
         "initiative":0,
         "speed":0,
         "hp":10,
@@ -71,8 +71,18 @@
         "deathsave_success":0,
         "deathsave_failure":0
     },
-    "equipment":[],
-    "attacksSpells":[],
+    "equipment":["sleeping bag", "beef jerky", "paring knife", "coil of rope", "artificier's toolkit"],
+    "gear": {
+		"trinket1": [],
+		"trinket2": [],
+		"leftHand": [],
+		"rightHand": ["simple six-shooter"],
+		"head": ["brown leather hat"],
+		"body": ["blue shirt", "brown vest", "checkered handkerchief", "ammunition belt (18x)"],
+		"legs": ["denim jeans"],
+		"feet": ["brown leather cowboy boots"]
+	},
+    "attacksSpells":["shoot"],
     "money":4,
     "flavor":{
         "personality":["short-tempered", "resourceful"],

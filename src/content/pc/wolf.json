@@ -60,7 +60,7 @@
     "passiveWisdom":"0",
     "otherProficienciesAndLanguages":"",
     "combat":{
-        "armorClass":0,
+        "armorClass":4,
         "initiative":0,
         "speed":0,
         "hp":10,
@@ -71,8 +71,18 @@
         "deathsave_success":0,
         "deathsave_failure":0
     },
-    "equipment":[],
-    "attacksSpells":[],
+    "equipment":["sleeping bag", "bottle of moonshine", "butterfly knife", "coil of rope"],
+    "gear": {
+		"trinket1": [],
+		"trinket2": [],
+		"leftHand": [],
+		"rightHand": ["hunting rifle"],
+		"head": ["round sunglasses"],
+		"body": ["cotton shirt"],
+		"legs": ["oily canvas overalls"],
+		"feet": ["leather utility boot", "metal prosthetic left leg"]
+	},
+    "attacksSpells":["shoot"],
     "money": 8,
     "flavor":{
         "personality":["Laid back", "deeply religious"],
