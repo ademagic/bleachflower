@@ -6,14 +6,14 @@
     "alias":"",
     "gender":"Male",
     "race":"Human",
-    "description":"",
-    "location":"The Prickly Pear",
+    "description":"A Laid back, deeply religious traveler. If he's not riding a mount, he's hugging a bottle.",
+    "location":"Split River Farms",
     "image":"",
     "hp":"",
     "mp":"",
     "class":"Bandolero",
     "level":"1",
-    "background":"",
+    "background":"Travelling away from his native mountainlands in Far East Paneura, Samsak is looking for guidance from the Gods everywhere he goes. He knows the world is in danger, and he seeks the right people to save it with.",
     "xp":"0",
     "attributes":{
         "str":"14",
@@ -89,6 +89,6 @@
         "ideals":["Travelling is the essence of living, the road is my home.", "God's words never to be betrayed.", "Will not harm animals unless they are to be eaten.", "Fellow travellers are companions on God’s path, they may not realise it yet. But they are worth sacrificing everything for."],
         "bonds":["The ride, both the journey and the vehicle/animal being ridden.", "Mountains", "Nature", "Alcohol", "Fellow Travelers", "Hate for Mage the bartender"],
         "flaws":["Alcoholic – -1 debuff on everything for over 24hrs without alcohol", "Deeply religious – must follow god's plan", "Weak left leg", "Rolling moss – 2+ nights in same place causes -1 debuff on all, per night."],
-        "featuresTraits":[""]
+        "featuresTraits":["Shaggy black hair and a prosthetic right leg."]
     }
 }
