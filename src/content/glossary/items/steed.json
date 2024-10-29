@@ -1,0 +1,9 @@
+{
+    "id": "steed",
+    "word": "Steed",
+    "definition": "A mechanical mount, common to Godsforgot. Resembling a deer or horse, they are light on their feet and designed to absorb or displace shock. Cheaper than beasts, and usually better at not falling into caverns.",
+    "seeAlso": [{
+        "label": "Godsforgot",
+        "link": "/locations#godsforgot"
+    }]
+}

@@ -13,7 +13,7 @@
     "mp":"",
     "class":"Bandolero",
     "level":"1",
-    "background":"Travelling away from his native mountainlands in Far East Paneura, Samsak is looking for guidance from the Gods everywhere he goes. He knows the world is in danger, and he seeks the right people to save it with.",
+    "background":"Travelling away from his native Altay mountainlands in Far East Paneura, Samsak is looking for guidance from the Gods everywhere he goes. He knows the world is in danger, and he seeks the right people to save it with.",
     "xp":"0",
     "attributes":{
         "str":"14",
@@ -26,10 +26,10 @@
         "con_mod":"0",
         "con_sav":"0",
         "wis":"10",
-        "wis_mod":"0",
+        "wis_mod":"+1",
         "wis_sav":"0",
         "int":"11",
-        "int_mod":"0",
+        "int_mod":"-5",
         "int_sav":"0",
         "cha":"12",
         "cha_mod":"0",
@@ -71,7 +71,7 @@
         "deathsave_success":0,
         "deathsave_failure":0
     },
-    "equipment":["sleeping bag", "bottle of moonshine", "butterfly knife", "coil of rope"],
+    "equipment":["sleeping bag", "bottle of moonshine", "butterfly knife", "coil of rope", "Pack of ciggis", "ziggi x2", "argan hair oil", "turtleshell haircomb"],
     "gear": {
 		"trinket1": [],
 		"trinket2": [],
