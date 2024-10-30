@@ -1,0 +1,15 @@
+{
+    "id": "grunthilde",
+    "word": "Grunthilde",
+    "definition": "A Porcine tracker under the employ of Horatio Glott. A woman of few words, but quite intimidating. Large, but less heavy set than the average Porcine woman.",
+    "seeAlso": [{
+        "label": "Porcine",
+        "link": "/races#porcine"
+    },{
+        "label": "Blaine",
+        "link": "/locations#blaine"
+    },{
+        "label": "Horatio Glott",
+        "link": "/npc#horatio_glott"
+    }]
+}

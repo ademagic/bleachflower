@@ -1,0 +1,15 @@
+{
+    "id": "dirk",
+    "word": "Dirk",
+    "definition": "An old Simian man who runs the General Store in Blaine. Covered in white fur, taller than average but mostly hunched over. Strangely overpowering when he wants to be. Met the crew after they tried to break in to his home. Asked them to consider investigating his suspicions of Horatio Glott.",
+    "seeAlso": [{
+        "label": "Simian",
+        "link": "/races#simian"
+    },{
+        "label": "Blaine",
+        "link": "/locations#blaine"
+    },{
+        "label": "Horatio Glott",
+        "link": "/npc#horatio_glott"
+    }]
+}

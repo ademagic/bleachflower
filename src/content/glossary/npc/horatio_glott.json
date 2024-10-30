@@ -1,0 +1,15 @@
+{
+    "id": "horatio_glott",
+    "word": "Horatio Glott",
+    "definition": "A slick, jolly fat old man. Bovine farmer and capable business man. He hired our crew to escort his Bovine on their trail, as some have been mysteriously going missing.",
+    "seeAlso": [{
+        "label": "Human",
+        "link": "/races#human"
+    },{
+        "label": "Split River Farms",
+        "link": "/locations#split-river"
+    },{
+        "label": "Blaine",
+        "link": "/locations#blaine"
+    }]
+}
