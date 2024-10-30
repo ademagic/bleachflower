@@ -1,0 +1,9 @@
+{
+    "id": "blaine",
+    "word": "Blaine",
+    "definition": "A small township in the dry plateaus of Godsforgot. Featuring not much but a main street and a few mixed business buildings, its a lone oasis for many days' ride.",
+    "seeAlso": [{
+        "label": "Godsforgot",
+        "link": "/locations#godsforgot"
+    }]
+}
