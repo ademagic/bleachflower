@@ -77,19 +77,19 @@
 		"trinket2": [],
 		"leftHand": [""],
 		"rightHand": ["Blacksmith's Hammer"],
-		"head": ["eye wraps"],
+		"head": ["eye wraps", "black scarf"],
 		"body": ["black cloak", "grey-white shirt"],
 		"legs": ["grey-white pants"],
 		"feet": ["black leather boots"],
         "back": ["black bag"]
 	},
-    "attacksSpells":["shoot"],
+    "attacksSpells":["hammer smash", "detect ether: d20+wis to identify enchantments/curses/magic"],
     "money":4,
     "flavor":{
         "personality":["curious, hesitant, quiet, fidgety, adaptable"],
         "ideals":["brotherhood", "freedom"],
         "bonds":["None"],
         "flaws":["Afraid of being betrayed. Distrustful of others if he feels it will be at advantage to them instead of him."],
-        "featuresTraits":[""]
+        "featuresTraits":["scar under right eye"]
     }
 }
