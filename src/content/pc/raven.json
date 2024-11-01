@@ -88,7 +88,7 @@
         "personality":["keen to try anything", "bad thief"],
         "ideals":["friendship", "stealing"],
         "bonds":["theft; tied to the latest steal", "his friends"],
-        "flaws":["kleptomaniac; constantly compulsed to steal", "clumsy; roll d20 disadvantage when rolling for acrobatics or sleight of hand. if d20 > 10, -2"],
+        "flaws":["kleptomaniac; constantly compulsed to steal", "clumsy; roll d20 disadvantage when rolling for acrobatics or sleight of hand."],
         "featuresTraits":[]
     }
 }
