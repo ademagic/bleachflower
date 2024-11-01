@@ -71,7 +71,7 @@
         "deathsave_success":0,
         "deathsave_failure":0
     },
-    "equipment":["sleeping bag", "bag of snacking seeds", "dagger", "healing salve", "coil of rope", "Shaktar artificier's toolkit"],
+    "equipment":["sleeping bag", "bag of snacking seeds", "dagger", "healing salve", "coil of rope", "Shaktar artificier's toolkit", "Ruby Sunstone glasses"],
     "gear": {
 		"trinket1": [],
 		"trinket2": [],
