@@ -5,7 +5,7 @@
     "lastName":"",
     "alias":"",
     "gender":"Male",
-    "race":"Ethereal",
+    "race":"Etherborn",
     "description":"",
     "location":"Split River Farms",
     "image":"",
@@ -26,10 +26,10 @@
         "con_mod":"0",
         "con_sav":"0",
         "wis":"13",
-        "wis_mod":"+1",
+        "wis_mod":"0",
         "wis_sav":"0",
         "int":"15",
-        "int_mod":"-5",
+        "int_mod":"0",
         "int_sav":"0",
         "cha":"14",
         "cha_mod":"0",
@@ -38,7 +38,7 @@
         "proficiency":"0"
     },
     "skills":{
-        "acrobatics":"-2",
+        "acrobatics":"0",
         "animalHandling":"0",
         "ether":"3",
         "athletics":"0",
@@ -53,7 +53,7 @@
         "performance":"0",
         "persuasion":"0",
         "religion":"0",
-        "sleightOfHand":"-2",
+        "sleightOfHand":"0",
         "stealth":"0",
         "survival":"0"
     },
@@ -82,13 +82,13 @@
 		"legs": ["burlap pants"],
 		"feet": ["black leather wraps"]
 	},
-    "attacksSpells":["zap"],
+    "attacksSpells":["zap", "detect ether: d20+wis to identify enchantments/curses/magic"],
     "money":10,
     "flavor":{
         "personality":["keen to try anything", "bad thief"],
         "ideals":["friendship", "stealing"],
         "bonds":["theft; tied to the latest steal", "his friends"],
-        "flaws":["kleptomaniac; constantly compulsed to steal", "clumsy; -2 to when rolling for acrobatics or sleight of hand"],
+        "flaws":["kleptomaniac; constantly compulsed to steal", "clumsy; roll d20 disadvantage when rolling for acrobatics or sleight of hand. if d20 > 10, -2"],
         "featuresTraits":[]
     }
 }
