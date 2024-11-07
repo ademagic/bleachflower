@@ -63,7 +63,7 @@
         "armorClass":4,
         "initiative":0,
         "speed":0,
-        "hp":10,
+        "hp":8,
         "hp_max":10,
         "hp_temp":0,
         "hitDice":"",
