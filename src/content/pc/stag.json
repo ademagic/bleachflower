@@ -76,9 +76,9 @@
 		"trinket1": [],
 		"trinket2": [],
 		"leftHand": ["leather fingerless glove", "string bracelet"],
-		"rightHand": ["leather fingerless glove", "golden six-shooter"],
-		"head": ["leather wide-brimmed hat"],
-		"body": ["leather vest", "denim shirt", "bandolier (24x)"],
+		"rightHand": ["leather fingerless glove", ""],
+		"head": [""],
+		"body": ["leather vest", "denim shirt", ""],
 		"legs": ["denim pants"],
 		"feet": ["leather boots"]
 	},

@@ -7,7 +7,7 @@
     "gender":"Male",
     "race":"Etherborn",
     "description":"",
-    "location":"Split River Farms",
+    "location":"Rest stop, The Flatlands",
     "image":"",
     "hp":"",
     "mp":"",
@@ -75,14 +75,14 @@
     "gear": {
 		"trinket1": [],
 		"trinket2": [],
-		"leftHand": [],
-		"rightHand": ["simple zapstick"],
-		"head": [""],
-		"body": ["Robe of A Thousand Pockets", "simple canvas shirt"],
+		"leftHand": ["zapstick"],
+		"rightHand": ["Golden Stagg's six-shooter"],
+		"head": ["Golden Stagg's leather wide-brimmed hat"],
+		"body": ["Robe of A Thousand Pockets", "simple canvas shirt, bandolier (24x)"],
 		"legs": ["burlap pants"],
 		"feet": ["black leather wraps"]
 	},
-    "attacksSpells":["zap", "detect ether: d20+wis to identify enchantments/curses/magic"],
+    "attacksSpells":["zap", "detect ether: d20+wis to identify enchantments/curses/magic", "shoot"],
     "money":10,
     "flavor":{
         "personality":["keen to try anything", "bad thief"],
